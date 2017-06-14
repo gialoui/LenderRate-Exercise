@@ -1,12 +1,17 @@
 /**
  * Created by KhangNDD on 6/14/2017.
  */
+
+/**
+ * @constructor
+ */
 var SquareService = function () {
 };
 
 /**
  * Create square array by input size
- * @param params
+ * @param {Object} params
+ * @param {number} params.size
  * @returns {Array}
  */
 SquareService.prototype.createSquareBySize = function (params) {
@@ -99,7 +104,7 @@ SquareService.prototype.getInnerSquare = function (params) {
 };
 
 /**
- * Set inner-square back to bigger array
+ * Set inner-square back to the biggest array
  * @param {Object} params
  * @param {Array} params.array
  * @param {Object} params.topLeftPosition
@@ -124,7 +129,7 @@ SquareService.prototype.setInnerSquareBackToArray = function (params) {
 };
 
 /**
- * Rotate inner-square by ninety to right
+ * Rotate the inner-square by ninety to the right
  * @param {Object} params
  * @param {Array} params.array
  * @param {Object} params.topLeftPosition
@@ -137,16 +142,19 @@ SquareService.prototype.rotateInnerSquareByNinetyToRight = function (params) {
         topLeftPosition = params.topLeftPosition,
         bottomRightPosition = params.bottomRightPosition;
 
+    // Get the inner-square
     var innerSquare = self.getInnerSquare({
         array: array,
         topLeftPosition: topLeftPosition,
         bottomRightPosition: bottomRightPosition
     });
 
+    // Rotate the inner-square by clockwise
     innerSquare = self.rotateByNinetyToRight({
         array: innerSquare
     });
 
+    // After rotate the inner-square, set them back to the biggest square
     array = self.setInnerSquareBackToArray({
         array: array,
         topLeftPosition: topLeftPosition,

@@ -1,10 +1,12 @@
 /**
  * Created by KhangNDD on 6/14/2017.
  */
+// Import libraries
 var SquareService = require('./SquareService');
 var Utils = require('./Utils');
 
 function main() {
+    // Hard-code example input data
     var exampleData = "7\n2\n1 2 4\n2 3 3\n2\n11\n24";
     var parsedData = {};
 
@@ -12,6 +14,7 @@ function main() {
     Utils.parseString({
         inputString: exampleData
     }, function (err, returnedData) {
+        // If error happen then stop this function and print out the error
         if (err) {
             console.error(err);
             return;
@@ -25,7 +28,7 @@ function main() {
 
             console.log(JSON.stringify(initialArray));
 
-            // Rotate inner square by input commands
+            // Rotate inner-square by the input commands
             for (var i = 0; i < parsedData.commandNumber; i++) {
                 initialArray = SquareService.rotateInnerSquareByNinetyToRight({
                     array: initialArray,
